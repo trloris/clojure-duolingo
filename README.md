@@ -1,14 +1,11 @@
 # duolingo
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to access the unofficial Duolingo API.
 
-## Usage
-
-FIXME
 
 ## License
 
-Copyright © 2015 FIXME
+Copyright © 2015 Trevyn Loris
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
