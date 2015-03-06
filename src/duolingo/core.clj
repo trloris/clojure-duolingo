@@ -35,10 +35,21 @@
      "level_percent" "level_points" "points_rank" "next_level" "level_left"
      "language" "points"]))
 
+(defn get-learned-skills
+  "Retrieve learned skills in language"
+  [user-dict language]
+   (filter #(get % "learned") (((user-dict "language_data") language)
+                                 "skills")))
+   
 (defn get-known-words
   "Retrieve words known in language"
   [user-dict language]
   (apply concat
  	(map #(get % "words")
-       (filter #(get % "learned") (((user-dict "language_data") language)
-                                     "skills")))))
+       (get-learned-skills user-dict language))))
+
+(defn get-known-topics
+  "Retrieve topic titles of known skills in language."
+  [user-dict language]
+  (map #(get % "title")
+    (get-learned-skills user-dict language)))
