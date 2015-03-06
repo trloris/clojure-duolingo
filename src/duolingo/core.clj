@@ -34,3 +34,11 @@
   	["streak" "language_string" "level_progress" "num_skills_learned"
      "level_percent" "level_points" "points_rank" "next_level" "level_left"
      "language" "points"]))
+
+(defn get-known-words
+  "Retrieve words known in language"
+  [user-dict language]
+  (apply concat
+ 	(map #(get % "words")
+       (filter #(get % "learned") (((user-dict "language_data") language)
+                                     "skills")))))
